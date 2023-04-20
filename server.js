@@ -8,7 +8,13 @@ app.set('views',path.join(__dirname,'views'));
 app.set('view engine','ejs')
 app.use(express.urlencoded({extended : true}))
 app.use(methodOverride('_method'))
+
+
 var data = []
+
+
+
+
 app.get('/',(req,res)=>{
     res.render("index",{array : data})
 })
@@ -51,6 +57,14 @@ app.put('/update/:id',(req,res)=>{
     res.redirect('/')
 })
 
+
+app.delete('/delete/:id',(req,res)=>{
+    const {id} = req.params;
+    data = data.filter((item)=>{
+        return item.id !== id;
+    })
+    res.redirect('/');
+})
 
 app.listen('3000',()=>{
     console.log("hello");
