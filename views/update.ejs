@@ -29,20 +29,20 @@
     <div class="container my-5">
         <div class="row justify-content-center">
           <div class="col-lg-9">
-            <h1 class="mb-3">Create a Memory</h1>
-            <form method="post" action="/create">
+            <h1 class="mb-3">Update a Memory</h1>
+            <form method="post" action="/update/<%=editpost.id%>?_method=PUT">
               <div class="row g-3">
                 <div class="col-md-6">
                   <label for="topic" class="form-label">Topic</label>
-                  <input type="text" class="form-control" id="topic" name="topic" required>
+                  <input type="text" class="form-control" id="topic" name="topic" value="<%= editpost.topic %>" required>
                 </div>
                 <div class="col-md-6">
                   <label for="date" class="form-label">Date</label>
-                  <input type="date" class="form-control" id="date" name="date">
+                  <input type="date" class="form-control" id="date" name="date" value="<%= editpost.date %>">
                 </div>
                 <div class="col-12">
                   <label for="message" class="form-label">Your Memory</label>
-                  <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                  <textarea class="form-control" id="message" name="message" rows="5" required><%= editpost.message %></textarea>
                 </div>
                 <div class="col-12">
                   <div class="row">
