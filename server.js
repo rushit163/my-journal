@@ -28,7 +28,7 @@ app.post('/create',(req,res)=>{
     }
     data.push(reqData);
     res.redirect('/')
-    console.log(data)
+
 })
 app.get('/create',(req,res)=>{
     res.render("post",{array : data})
